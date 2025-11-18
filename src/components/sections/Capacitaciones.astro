@@ -1,0 +1,46 @@
+---
+// src/components/sections/Capacitaciones.astro
+
+interface Curso {
+  nombre: string;
+  duracion: string;
+  modalidad: string;
+  precio: string;
+}
+
+const { cursos } = Astro.props as { cursos: Curso[] };
+---
+
+<!-- Cursos y Capacitaciones -->
+<section id="cursos" class="py-12 px-4 sm:px-6 lg:px-8 bg-black/20">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12 text-white">
+      <span class="bg-gradient-to-r from-institucional-white to-institucional-blue-light bg-clip-text text-transparent">
+        CURSOS Y CAPACITACIONES
+      </span>
+    </h2>
+    
+    <div class="space-y-8">
+      <!-- Capacitación -->
+      <div class="bg-gradient-to-br from-institucional-blue/20 to-institucional-white/20 backdrop-blur-lg rounded-xl p-6 sm:p-8 border border-institucional-white/20">
+        <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">CAPACITACIÓN</h3>
+        <div class="space-y-3 sm:space-y-4">
+          {cursos.map((curso) => (
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-black/30 p-4 rounded-lg">
+              <div class="mb-2 sm:mb-0">
+                <h4 class="text-white font-semibold">{curso.nombre}</h4>
+                <p class="text-gray-400 text-sm">Duración: {curso.duracion} | {curso.modalidad}</p>
+              </div>
+              <div class="flex items-center">
+                <span class="text-institucional-red font-bold mr-4">{curso.precio}</span>
+                <button class="bg-institucional-red hover:bg-institucional-red-dark text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                  Más info
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

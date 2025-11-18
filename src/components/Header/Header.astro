@@ -1,0 +1,36 @@
+---
+// src/components/Header/Header.astro
+---
+
+<header class="fixed w-full bg-black/50 backdrop-blur-lg z-50 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="text-white text-xl font-bold">
+          <span class="text-institucional-red">CATE</span>C
+        </a>
+      </div>
+      
+      <!-- Menú de navegación -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="#inicio" class="text-white hover:text-institucional-red transition-colors">Inicio</a>
+        <a href="#programas" class="text-white hover:text-institucional-red transition-colors">Programas</a>
+        <a href="#cursos" class="text-white hover:text-institucional-red transition-colors">Cursos</a>
+        <a href="#contacto" class="text-white hover:text-institucional-red transition-colors">Contacto</a>
+      </nav>
+      
+      <!-- Botón móvil -->
+      <div class="md:hidden">
+        <button class="text-white hover:text-institucional-red focus:outline-none">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Espacio para el header fijo -->
+<div class="h-16"></div>

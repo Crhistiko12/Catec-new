@@ -1,170 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header/Header.astro';
+import Hero from '../components/sections/Hero.astro';
+import ProgramasAcademicos from '../components/sections/ProgramasAcademicos.astro';
+import Capacitaciones from '../components/sections/Capacitaciones.astro';
+import Footer from '../components/Footer/Footer.astro';
+
+// Datos de los programas académicos
+const programasAcademicos = [
+  { nombre: 'Administración de empresas', descripcion: 'Formación profesional especializada' },
+  { nombre: 'Contaduría General', descripcion: 'Formación profesional especializada' },
+  { nombre: 'Sistemas Informáticos', descripcion: 'Formación profesional especializada' },
+  { nombre: 'Publicidad y Marketing', descripcion: 'Formación profesional especializada' },
+  { nombre: 'Comercio Internacional y Administración Aduanera', descripcion: 'Formación profesional especializada' },
+  { nombre: 'Secretariado Ejecutivo', descripcion: 'Formación profesional especializada' },
+  { nombre: 'Turismo', descripcion: 'Formación profesional especializada' }
+];
+
+// Datos de los cursos y capacitaciones
+const cursosCapacitaciones = [
+  { 
+    nombre: 'Curso de Marketing Digital', 
+    duracion: '3 meses', 
+    modalidad: 'Virtual',
+    precio: '$299.000'
+  },
+  { 
+    nombre: 'Desarrollo Web Full Stack', 
+    duracion: '6 meses', 
+    modalidad: 'Presencial',
+    precio: '$499.000'
+  },
+  { 
+    nombre: 'Community Manager', 
+    duracion: '2 meses', 
+    modalidad: 'Virtual',
+    precio: '$199.000'
+  }
+];
 ---
 
 <Layout>
-  <!-- Hero Section -->
-  <section class="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-    <div class="text-center text-white max-w-4xl mx-auto">
-      <div class="mb-8">
-        <span class="text-institucional-white/80 font-mono text-lg tracking-wider">INSTITUTO TECNOLÓGICO</span>
-        <h1 class="text-5xl md:text-7xl font-bold mt-4 mb-6 bg-gradient-to-r from-institucional-white to-institucional-blue-light bg-clip-text text-transparent">
-          CATEC
-        </h1>
-      </div>
-      
-      <div class="mb-12">
-        <h2 class="text-2xl md:text-4xl font-light mb-4 text-institucional-white/80">
-          Estudia una
-        </h2>
-        <h3 class="text-3xl md:text-5xl font-bold mb-6 text-white">
-          Carrera <span class="text-institucional-red">PROFESIONAL</span>
-        </h3>
-      </div>
-
-      <!-- CTA Button -->
-      <div class="mb-16">
-        <button class="group relative px-8 py-4 bg-gradient-to-r from-institucional-red to-institucional-blue rounded-lg font-bold text-lg text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-institucional-red/25">
-          <span class="relative z-10">Inscríbete Ahora</span>
-          <div class="absolute inset-0 bg-gradient-to-r from-institucional-red-dark to-institucional-blue-dark rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Programas Académicos -->
-  <section class="py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto">
-      <!-- Técnico Superior -->
-      <div class="mb-12">
-        <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 text-white">
-          <span class="bg-gradient-to-r from-institucional-white to-institucional-blue-light bg-clip-text text-transparent">
-            TÉCNICO SUPERIOR
-          </span>
-        </h2>
-        <div class="space-y-4">
-          <div class="group bg-institucional-blue/10 backdrop-blur-lg rounded-xl p-4 sm:p-6 border border-institucional-white/20 hover:border-institucional-red/50 transition-all duration-300">
-            <div class="flex items-center mb-2">
-              <div class="w-2.5 h-2.5 bg-institucional-red rounded-full mr-3 group-hover:animate-pulse"></div>
-              <h3 class="text-base sm:text-lg font-semibold text-white">Administración de empresas</h3>
-            </div>
-            <p class="text-gray-300 text-xs sm:text-sm pl-5">Formación profesional especializada</p>
-          </div>
-          
-          <div class="group bg-institucional-blue/10 backdrop-blur-lg rounded-xl p-4 sm:p-6 border border-institucional-white/20 hover:border-institucional-red/50 transition-all duration-300">
-            <div class="flex items-center mb-2">
-              <div class="w-2.5 h-2.5 bg-institucional-red rounded-full mr-3 group-hover:animate-pulse"></div>
-              <h3 class="text-base sm:text-lg font-semibold text-white">Contaduría General</h3>
-            </div>
-            <p class="text-gray-300 text-xs sm:text-sm pl-5">Formación profesional especializada</p>
-          </div>
-          
-          <div class="group bg-institucional-blue/10 backdrop-blur-lg rounded-xl p-4 sm:p-6 border border-institucional-white/20 hover:border-institucional-red/50 transition-all duration-300">
-            <div class="flex items-center mb-2">
-              <div class="w-2.5 h-2.5 bg-institucional-red rounded-full mr-3 group-hover:animate-pulse"></div>
-              <h3 class="text-base sm:text-lg font-semibold text-white">Sistemas Informáticos</h3>
-            </div>
-            <p class="text-gray-300 text-xs sm:text-sm pl-5">Formación profesional especializada</p>
-          </div>
-          
-          <div class="group bg-institucional-blue/10 backdrop-blur-lg rounded-xl p-4 sm:p-6 border border-institucional-white/20 hover:border-institucional-red/50 transition-all duration-300">
-            <div class="flex items-center mb-2">
-              <div class="w-2.5 h-2.5 bg-institucional-red rounded-full mr-3 group-hover:animate-pulse"></div>
-              <h3 class="text-base sm:text-lg font-semibold text-white">Publicidad y Marketing</h3>
-            </div>
-            <p class="text-gray-300 text-xs sm:text-sm pl-5">Formación profesional especializada</p>
-          </div>
-          
-          <div class="group bg-institucional-blue/10 backdrop-blur-lg rounded-xl p-4 sm:p-6 border border-institucional-white/20 hover:border-institucional-red/50 transition-all duration-300">
-            <div class="flex items-center mb-2">
-              <div class="w-2.5 h-2.5 bg-institucional-red rounded-full mr-3 group-hover:animate-pulse"></div>
-              <h3 class="text-base sm:text-lg font-semibold text-white">Comercio Internacional y Administración Aduanera</h3>
-            </div>
-            <p class="text-gray-300 text-xs sm:text-sm pl-5">Formación profesional especializada</p>
-          </div>
-          
-          <div class="group bg-institucional-blue/10 backdrop-blur-lg rounded-xl p-4 sm:p-6 border border-institucional-white/20 hover:border-institucional-red/50 transition-all duration-300">
-            <div class="flex items-center mb-2">
-              <div class="w-2.5 h-2.5 bg-institucional-red rounded-full mr-3 group-hover:animate-pulse"></div>
-              <h3 class="text-base sm:text-lg font-semibold text-white">Secretariado Ejecutivo</h3>
-            </div>
-            <p class="text-gray-300 text-xs sm:text-sm pl-5">Formación profesional especializada</p>
-          </div>
-          
-          <div class="group bg-institucional-blue/10 backdrop-blur-lg rounded-xl p-4 sm:p-6 border border-institucional-white/20 hover:border-institucional-red/50 transition-all duration-300">
-            <div class="flex items-center mb-2">
-              <div class="w-2.5 h-2.5 bg-institucional-red rounded-full mr-3 group-hover:animate-pulse"></div>
-              <h3 class="text-base sm:text-lg font-semibold text-white">Turismo</h3>
-            </div>
-            <p class="text-gray-300 text-xs sm:text-sm pl-5">Formación profesional especializada</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Técnico Medio y Capacitación -->
-      <div class="space-y-8">
-        <!-- Capacitación -->
-        <div class="bg-gradient-to-br from-institucional-blue/20 to-institucional-white/20 backdrop-blur-lg rounded-xl p-6 sm:p-8 border border-institucional-white/20">
-          <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">CAPACITACIÓN</h3>
-          <div class="space-y-3 sm:space-y-4">
-            <div class="flex items-center p-3 sm:p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-              <div class="w-2 h-2 bg-institucional-white rounded-full mr-3 flex-shrink-0 animate-pulse"></div>
-              <p class="text-sm sm:text-base text-gray-200">Cursos técnicos</p>
-            </div>
-            <div class="flex items-center p-3 sm:p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-              <div class="w-2 h-2 bg-institucional-white rounded-full mr-3 flex-shrink-0 animate-pulse"></div>
-              <p class="text-sm sm:text-base text-gray-200">Talleres especializados</p>
-            </div>
-            <div class="flex items-center p-3 sm:p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-              <div class="w-2 h-2 bg-institucional-white rounded-full mr-3 flex-shrink-0 animate-pulse"></div>
-              <p class="text-sm sm:text-base text-gray-200">Certificaciones</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Técnico Medio -->
-        <div class="bg-gradient-to-br from-institucional-red/20 to-institucional-blue/20 backdrop-blur-lg rounded-xl p-6 sm:p-8 border border-institucional-white/20">
-          <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">TÉCNICO MEDIO</h3>
-          <div class="space-y-3 sm:space-y-4">
-            <div class="flex items-center">
-              <div class="w-2 h-2 bg-institucional-red rounded-full mr-3 flex-shrink-0"></div>
-              <p class="text-sm sm:text-base text-gray-200">Contabilidad</p>
-            </div>
-            <div class="flex items-center">
-              <div class="w-2 h-2 bg-institucional-red rounded-full mr-3 flex-shrink-0"></div>
-              <p class="text-sm sm:text-base text-gray-200">Informática</p>
-            </div>
-            <div class="flex items-center">
-              <div class="w-2 h-2 bg-institucional-red rounded-full mr-3 flex-shrink-0"></div>
-              <p class="text-sm sm:text-base text-gray-200">Administración</p>
-            </div>
-          </div>
-        </div>
-          <h3 class="text-2xl font-bold text-white mb-6 text-center">CAPACITACIÓN</h3>
-          <div class="space-y-4">
-            <div class="flex items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-              <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3 animate-pulse"></div>
-              <span class="text-white font-medium">Operador Windows</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-black/50 backdrop-blur-lg border-t border-white/20 py-12 px-4">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-        Ven a <span class="text-cyan-400">CATEC</span>
-      </h2>
-      <p class="text-2xl text-gray-300 mb-8">
-        DONDE ESTUDIAS PARA <span class="text-green-400 font-bold">TRABAJAR</span>
-      </p>
-      <div class="text-gray-400">
-        <p>Instituto Tecnológico CATEC</p>
-        <p class="mt-2">Formando profesionales del futuro</p>
-      </div>
-    </div>
-  </footer>
+  <Header />
+  <main>
+    <Hero />
+    <ProgramasAcademicos programas={programasAcademicos} />
+    <Capacitaciones cursos={cursosCapacitaciones} />
+  </main>
+  <Footer />
 </Layout>
