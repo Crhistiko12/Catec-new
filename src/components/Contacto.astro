@@ -1,0 +1,148 @@
+---
+// src/components/Contacto.astro
+
+// Lista de carreras disponibles
+const carreras = [
+  'Administración de empresas',
+  'Contaduría General',
+  'Sistemas Informáticos',
+  'Publicidad y Marketing',
+  'Comercio Internacional y Administración Aduanera',
+  'Secretariado Ejecutivo',
+  'Turismo'
+];
+
+// Número de teléfono del instituto (formato: código de país + número sin espacios ni caracteres especiales)
+const telefonoInstituto = '1234567890'; // Reemplaza con el número de teléfono del instituto
+
+// Función para enviar el formulario
+const handleSubmit = (event: Event) => {
+  event.preventDefault();
+  
+  const form = event.target as HTMLFormElement;
+  const formData = new FormData(form);
+  
+  const mensaje = `Hola, me llamo ${formData.get('nombre')}%0A` +
+                 `Estoy interesado(a) en la carrera de: ${formData.get('carrera')}%0A` +
+                 `Ciudad: ${formData.get('ciudad')}%0A` +
+                 `Mensaje: ${formData.get('mensaje')}`;
+  
+  // Redirigir a WhatsApp con el mensaje
+  window.open(`https://wa.me/${telefonoInstituto}?text=${mensaje}`, '_blank');
+};
+---
+
+<!-- Sección de Contacto -->
+<section id="contacto" class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-institucional-blue/20 to-institucional-red/20">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12 text-white">
+      <span class="bg-gradient-to-r from-institucional-white to-institucional-blue-light bg-clip-text text-transparent">
+        CONTÁCTANOS
+      </span>
+    </h2>
+    
+    <div class="bg-black/30 backdrop-blur-lg rounded-xl p-6 sm:p-8 border border-institucional-white/20">
+      <form 
+        id="contactForm"
+        class="space-y-6"
+      >
+      <script is:inline>
+        document.addEventListener('DOMContentLoaded', function() {
+          const form = document.getElementById('contactForm');
+          if (form) {
+            form.addEventListener('submit', function(event) {
+              event.preventDefault();
+              
+              const formData = new FormData(form);
+              const telefonoInstituto = '1234567890'; // Reemplaza con el número de teléfono del instituto
+              
+              const mensaje = `Hola, me llamo ${formData.get('nombre')}%0A` +
+                             `Estoy interesado(a) en la carrera de: ${formData.get('carrera')}%0A` +
+                             `Ciudad: ${formData.get('ciudad')}%0A` +
+                             `Mensaje: ${formData.get('mensaje')}`;
+              
+              // Redirigir a WhatsApp con el mensaje
+              window.open(`https://wa.me/${telefonoInstituto}?text=${mensaje}`, '_blank');
+            });
+          }
+        });
+      </script>
+        <!-- Nombre completo -->
+        <div>
+          <label for="nombre" class="block text-sm font-medium text-white mb-1">
+            Nombre completo <span class="text-institucional-red">*</span>
+          </label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+            class="w-full px-4 py-2 bg-black/50 border border-institucional-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-institucional-red focus:border-transparent"
+            placeholder="Ingresa tu nombre completo"
+          />
+        </div>
+        
+        <!-- Carrera de interés -->
+        <div>
+          <label for="carrera" class="block text-sm font-medium text-white mb-1">
+            Carrera de interés <span class="text-institucional-red">*</span>
+          </label>
+          <select
+            id="carrera"
+            name="carrera"
+            required
+            class="w-full px-4 py-2 bg-black/50 border border-institucional-white/20 rounded-lg text-white focus:ring-2 focus:ring-institucional-red focus:border-transparent"
+          >
+            <option value="" disabled selected>Selecciona una carrera</option>
+            {carreras.map((carrera) => (
+              <option value={carrera}>{carrera}</option>
+            ))}
+          </select>
+        </div>
+        
+        <!-- Ciudad -->
+        <div>
+          <label for="ciudad" class="block text-sm font-medium text-white mb-1">
+            Ciudad <span class="text-institucional-red">*</span>
+          </label>
+          <input
+            type="text"
+            id="ciudad"
+            name="ciudad"
+            required
+            class="w-full px-4 py-2 bg-black/50 border border-institucional-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-institucional-red focus:border-transparent"
+            placeholder="Ciudad donde vives"
+          />
+        </div>
+        
+        <!-- Mensaje -->
+        <div>
+          <label for="mensaje" class="block text-sm font-medium text-white mb-1">
+            Mensaje <span class="text-institucional-red">*</span>
+          </label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows={4}
+            required
+            class="w-full px-4 py-2 bg-black/50 border border-institucional-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-institucional-red focus:border-transparent"
+            placeholder="Déjanos tu mensaje o consulta..."
+          ></textarea>
+        </div>
+        
+        <!-- Botón de enviar -->
+        <div class="pt-2">
+          <button
+            type="submit"
+            class="w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-gradient-to-r from-institucional-red to-institucional-blue hover:from-institucional-red-dark hover:to-institucional-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-institucional-red transition-all duration-300"
+          >
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.498 14.382v-2.065a.96.96 0 01.964-.964h.005a.96.96 0 01.964.964v2.065a.96.96 0 01-.964.964h-.005a.96.96 0 01-.964-.964zm-7.5 0v-2.065a.96.96 0 01.964-.964h.005a.96.96 0 01.964.964v2.065a.96.96 0 01-.964.964h-.005a.96.96 0 01-.964-.964zm-3.75 0v-2.065a.96.96 0 01.964-.964h.005a.96.96 0 01.964.964v2.065a.96.96 0 01-.964.964h-.005a.96.96 0 01-.964-.964zm11.356-9.117a1.467 1.467 0 00-1.027-.42c-.03 0-.06.002-.09.004L5.914 4.5H5.91a1.46 1.46 0 00-1.035.43 1.46 1.46 0 00-.43 1.035v12.07c0 .39.154.763.43 1.04.277.276.65.43 1.04.43h12.14c.39 0 .764-.154 1.04-.43.276-.277.43-.65.43-1.04V6.445c0-.39-.154-.763-.43-1.04zM12 20.01c-3.313 0-6-2.688-6-6s2.687-6 6-6 6 2.688 6 6-2.687 6-6 6z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

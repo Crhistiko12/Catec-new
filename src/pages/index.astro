@@ -4,6 +4,7 @@ import Header from '../components/Header/Header.astro';
 import Hero from '../components/sections/Hero.astro';
 import ProgramasAcademicos from '../components/sections/ProgramasAcademicos.astro';
 import Capacitaciones from '../components/sections/Capacitaciones.astro';
+import Contacto from '../components/Contacto.astro';
 import Footer from '../components/Footer/Footer.astro';
 
 // Datos de los programas académicos
@@ -46,6 +47,7 @@ const cursosCapacitaciones = [
     <Hero />
     <ProgramasAcademicos programas={programasAcademicos} />
     <Capacitaciones cursos={cursosCapacitaciones} />
+    <Contacto />
   </main>
   <Footer />
 </Layout>
